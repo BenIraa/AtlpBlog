@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BenIraa-Admin-Dasboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: darkgoldenrod;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: darkgoldenrod;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 550px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            background-color: #221d1d;
+            height: 150%;
+        }
+        /* On small screens, set height to 'auto' for the grid */
+        
+        @media screen and (max-width: 767px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand " href="../index.html"><img src="../images/Ben iraa without bg.png " style="width: 120px; height: 50px; margin-top: -12px;"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="Users.html">Add User</a></li>
+                    <li><a href="Subscribers.html">Subscribers</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contactpage.html">Contact Page</a></li>
+                    <li><a href="" id="smallDvc-logoutBtn">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav hidden-xs">
+                <img src="../images/Ben iraa without bg.png " style="width: 120px; height: 50px;">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="Users.html">Add User</a></li>
+                    <li><a href="Subscribers.html">Subscribers</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contactpage.html">Contact Page</a></li>
+                    <li><a href="" id="logoutBtn">Sign out</a></li>
+                </ul><br>
+            </div>
+            <br>
+
+            <div class="col-sm-9">
+                <div class="well">
+                    <h4 class="Font-mono">Dashboard Overview</h4>
+                    <p class="font-mono">Welcome BenIraa, View your project and add some or delete old!</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well">
+                            <form id="addBlog" class="form-inline"  enctype="multipart/form-data">
+                                <label for="title">title:</label>
+                                <input type="text" id="title" placeholder="Enter title" required="" name="title">
+                                <label for="description">description:</label>
+                                <input type="text" id="desc" placeholder="Enter discription" required="" name="desc">
+                                <label for="picture">picture:</label>
+                                <input type="text" id="picture" required="" placeholder="Enter img Url" name="picture">
+                                
+                                
+                                <button id="addBlog" name="addBlog" type="submit">Add Projects</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="well" class="well">
+                            <!-- data fetched -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function isLoginedIn()
+{
+    
+    if(!localStorage.getItem('token'))
+    {
+        location.href = '../index.html'
+    }
+}
+isLoginedIn()
+
+ function logout()
+{
+  localStorage.setItem('token', "");
+  window.location.reload()
+  
+}
+// console.log(document.getElementById("logoutBtn"))
+document.getElementById("logoutBtn").addEventListener("click", e=> {
+  e.preventDefault();
+  logout()
+
+})
+document.getElementById("logoutBtn").addEventListener("click", e=> {
+  e.preventDefault();
+  logout()
+
+})
+    </script>
+</body>
+
+</html>
+<script>
+
+fetch('https://beniraabrand.herokuapp.com/api/v1/blogs', {
+    method: 'GET',
+    headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+}).then((data)=>{return data.json();
+}).then((values)=>{
+    console.log(values.data.blog)
+    document.getElementById("well").innerHTML = values.data.blog.map((values)=> 
+    `
+                             <table class="table">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th>title</th>
+                                        <th>discription</th>
+                                        <th>image</th>
+                                        <th>update</th>
+                                        <th>delete</th>
+                                  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td data-label="Power">${values.title}</td>
+                                        <td data-label="Expiration">${values.desc}</td>
+                                        <td data-label="Value">${values.picture}</td>
+                                        <td data-lebel="trash"><a href="updateBlog.html#${values._id}"><i class="fa fa-pencil-square-o"></i></a></td>
+                                        <td data-lebel="trash"><a href="deleteBlog.html#${values._id}"><i class="fa fa-trash"></i></a></td>
+                                        
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+    `).join("")
+})
+
+</script>
+
+<script>
+    const addBlog_form = document.getElementById("addBlog")
+    addBlog_form.addEventListener("submit", async (event) => {
+         event.preventDefault()
+         // CREATE USER
+         const body = {
+           title: addBlog_form.title.value,
+           desc: addBlog_form.desc.value,
+           picture: addBlog_form.picture.value,
+           
+
+         }
+         console.log(body)
+         await fetch("https://beniraabrand.herokuapp.com/api/v1/blogs", {
+           method: "POST",
+           headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+           },
+           body: JSON.stringify(body),
+         })
+           .then((res) => res.json())
+           .then((json) => {
+             const { error, message, status } = json
+           })
+         // CLEAR FORM
+         addBlog_form.title.value = ""
+         addBlog_form.desc.value = ""
+         addBlog_form.picture.value = ""
+        
+       })
+</script>

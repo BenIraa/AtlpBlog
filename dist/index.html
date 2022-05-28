@@ -1,0 +1,719 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="css/style.css">
+  <style>
+    
+   @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+
+:root {
+  --color: #3c3163;
+  --transition-time: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans';
+  background: #fafafa;
+}
+
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.card {
+  font-family: 'Heebo';
+  --bg-filter-opacity: 0.5;
+  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+  height: 16em;
+  width: 13em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 1em;
+  padding: 1em;
+  /*margin: 2em;*/
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all, var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #ccc;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: rotate(0);
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+.card p {
+  font-size: 0.75em;
+  font-family: 'Open Sans';
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.card .tags {
+  display: flex;
+}
+
+.card .tags .tag {
+  font-size: 0.75em;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0.3rem;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  line-height: 1.5em;
+  transition: all, var(--transition-time);
+}
+
+.card:hover .tags .tag {
+  background: var(--color);
+  color: white;
+}
+
+.card .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 1em;
+  line-height: 1em;
+  opacity: .8;
+}
+
+.card:before, .card:after {
+  content: '';
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  z-index: -5;
+  transition: all, var(--transition-time);
+  transition-timing-function: ease-in-out;
+}
+
+.card:before {
+  background: #ddd;
+  width: 250%;
+  height: 250%;
+}
+
+.card:after {
+  background: white;
+  width: 200%;
+  height: 200%;
+}
+
+.card:hover {
+  color: var(--color);
+}
+
+.card:hover:before, .card:hover:after {
+  transform: scale(1);
+}
+
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+}
+
+.info {
+  font-size: 1.2em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+}
+
+.info img {
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.info h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
+
+
+        /* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 6px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.button-modal {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 5px 9px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.container-modal {
+  padding: 14px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: auto; /* Full width */
+  height: 500%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 25px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #e0dfdf;
+  margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+    </style>
+
+
+</head>
+
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="images/Ben iraa without bg.png">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="education.html">Education</a>
+          <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="index-container ">
+        <div class=" flex flex-wrap p-6 mt-4">
+            <div class="w-full  ml-6 p-6 md:w-3/6   ">
+                <span class="text-yellow-600 p-6 font-mono text-xl">Hello I'm</span>
+                <p class="  font-mono  p-6 text-2xl">Ben Iraa<span class="text-yellow-600 font-mono ml-2 text-2xl">Web Developer</span></p>
+                <p class=" mt-4  p-6 font-mono">I'm  expert web design and Web development, I'm a Front End Developer. I have a Passion for Creating Clean, Beautiful, Interactive, Minimalistic, Responsive and User Friendly UI, Developed by Modular, Scalable and Functional Code.</p>
+                <div class="flex flex-wrap mt-6 mr-6 p-6">
+                    <div class="w-full md:w-3/6">
+                      <button onclick="document.getElementById().style.display='block'" style="width:auto;" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
+                        
+                          <span class="relative px-2 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                           HireMe
+                       </span>
+                       
+                      </button>
+                    </div>
+                    <div class="w-full  md:w-3/6 " >
+                        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800">
+                        <span class="relative px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                             Login
+                        </span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full p-6 ml-12  md:w-2/6 ">
+                <div class="image-ciircle"><img src="images/myprofilepic.jpg" alt="Avatar" style="width: 400px; height: 400px;  border-radius: 50%; border: 5px solid darkgoldenrod;"></div>
+
+
+            </div>
+
+        </div>
+        
+
+
+
+<div id="id01" class="modal">
+  
+  <div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <!-- <img src="images/admin.jpg" alt="Avatar" class="center"> -->
+    </div>
+
+    <div class="container-modal">
+      <form id="login" class="login">
+      <label for="email"><b>Email</b></label>
+      <input type="text" id="email" placeholder="Enter Email" name="email" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" id="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit" id="login" style="padding: 4px; background-color: #04AA6D; width: 100px;">Login</button>
+    </form>
+    </div>
+
+    <div class="container-modal" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </div>
+</div>
+
+<div id="id02" class="modal">
+  
+  <div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container-modal">
+      <form>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">From:</label>
+          <input type="text" class="form-control" id="recipient-name">
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Message:</label>
+          <textarea class="form-control" id="message-text"></textarea>
+        </div>
+        <button type="submit" style="padding: 4px; background-color: #04AA6D; width: 100px;">Hire</button>
+      </form>
+    </div>
+
+    <div class="container-modal" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+<span class="servises text-yellow-600 p-32 font-mono text-l ">Our Servise</span>
+
+
+
+<section class="cards-wrapper mt-12 bg-gray-400">
+  <div class="card-grid-space">
+    
+    <a class="card" href="" style="--bg-img: url(https://www.fileeagle.com/data/2021/12/Adobe-XD.jpg)">
+      <div>
+        <h1>Website Prototype</h1>
+        <p>We design web before </p>
+        <div class="date">6 Oct 2022</div>
+        <div class="tags">
+          <div class="tag">Read more</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="card-grid-space">
+    
+    <a class="card" href="" style="--bg-img: url('https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/basic-types-of-html-tags/cover.jpg')">
+      <div>
+        <h1>Using NodeJs| ReactJs,...</h1>
+        <p>Web Development</p>
+        <div class="date">9 Oct 2022</div>
+        <div class="tags">
+          <div class="tag">Read more</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="card-grid-space">
+    
+    <a class="card" href="" style="--bg-img: url(https://www.comunic8it.com/wp-content/uploads/2020/11/social-media-marketing-mobile-phone-concept_23-2148416469.jpg)">
+   
+      <div>
+        <h1>Make Your Website Visible Faster On Google</h1>
+        <p>Search Engine Optimization</p>
+        <div class="date">14 Oct 2022</div>
+        <div class="tags">
+          <div class="tag">Read more</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+</section>
+
+<!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "729422523855785");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v13.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<footer class="flex justify-center px-4 text-gray-100 bg-gray-400">
+  <div class="container py-6">
+      <h1 class="text-center text-lg font-bold lg:text-xl">
+          Join 31+ other and never miss <br> out on new tips, tutorials, and more.
+      </h1>
+
+      <div class="flex justify-center mt-6">
+          <div class="bg-white rounded-lg">
+              <div class="flex flex-wrap justify-between md:flex-row">
+                <form id="subscribe">
+                  <input type="email" class="m-1 p-2 appearance-none text-gray-700 text-sm focus:outline-none" name="email" required="" placeholder="Enter your email">
+                  <button class="w-full m-1 p-2 text-sm bg-gray-800 rounded-lg font-semibold uppercase lg:w-auto">subscribe</button>
+                </form>
+              </div>
+          </div>
+      </div>
+
+      <hr class="h-px mt-6 bg-gray-700 border-none">
+
+      <div class="flex flex-col items-center justify-between mt-6 md:flex-row">
+          <div>
+              <a href="index.html" class="text-xl font-bold">BenIraa</a>
+          </div>
+          <div class="flex mt-4 md:m-0">
+              <div class="-mx-4">
+                <a href="/dist/about.html" class="px-4 text-sm">About</a>
+                <a href="/dist/projects.html" class="px-4 text-sm">Blog</a>
+                <a href="/dist/about.html" class="px-4 text-sm">News</a>
+                <a href="/dist/contact.html" class="px-4 text-sm">Contact</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+
+ 
+
+
+</body>
+
+</html>
+
+<script> 
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+<!-- SCRIPT FOR LOGIN MODAL -->
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<script>
+  // Get the modal
+  var modal = document.getElementById('id02');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+</script>
+<script>
+  
+  const form = document.querySelector('#login');
+  form.addEventListener('submit', async(e) => {
+        e.preventDefault()
+        try {
+            const resp = await fetch('https://beniraabrand.herokuapp.com/api/v1/users/login', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: form.email.value,
+                    password: form.password.value
+                })
+            })
+            const data = await resp.json()
+            console.log(data.token)
+            
+      
+      //   let swal
+      //   swal('success', data.message, 'success').then(() =>{
+       localStorage.setItem('token', data.token)
+      if(data.data.user.role==="admin"){
+        console.log(true)
+         location.href='./Dashboard/index.html';
+      }else{
+        console.log(false)
+         location.href='./Dashboard/index.html';
+      }
+      //   })
+      // }
+      
+
+        
+        } catch (error) { 
+          console.log(error)
+        }
+    })
+</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+<script>
+  const signup_Form = document.getElementById("subscribe")
+     signup_Form.addEventListener("submit", async (event) => {
+       event.preventDefault()
+       // CREATE USER
+       const body = {
+         email: signup_Form.email.value,
+       }
+       console.log(body)
+       await fetch("https://beniraabrand.herokuapp.com/api/v1/subscribers", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(body),
+       })
+         .then((res) => res.json())
+         .then((json) => {
+           const { error, message, status } = json
+           console.log(error, message, status)
+          //  document.getElementById("error").innerHTML = message
+          //  document.getElementById("error").style.color = "red"
+         })
+       // CLEAR FORM
+       signup_Form.email.value = ""
+      Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Thank Your For Subscribing Our news Letter!',
+      showConfirmButton: false,
+      timer: 1500
+      })
+
+     });
+     
+</script>

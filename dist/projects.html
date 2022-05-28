@@ -1,0 +1,429 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <!-- W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5 CSS3,Bootstrap,Tailwind CSS which are 100% Mobile friendly. w3Hubs all Layouts are responsive cross browser supported, best quality world class designs. -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
+
+
+    <style type="text/tailwindcss">
+        @layer utilities { .content-auto { content-visibility: auto; } }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+
+:root {
+  --color: #3c3163;
+  --transition-time: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans';
+  background: #fafafa;
+}
+
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.card {
+  font-family: 'Heebo';
+  --bg-filter-opacity: 0.5;
+  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+  height: 16em;
+  width: 15em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 1em;
+  padding: 1em;
+  /*margin: 2em;*/
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all, var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #ccc;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: rotate(0);
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+.card p {
+  font-size: 0.75em;
+  font-family: 'Open Sans';
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.card .tags {
+  display: flex;
+}
+
+.card .tags .tag {
+  font-size: 0.75em;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0.3rem;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  line-height: 1.5em;
+  transition: all, var(--transition-time);
+}
+
+.card:hover .tags .tag {
+  background: var(--color);
+  color: white;
+}
+
+.card .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 1em;
+  line-height: 1em;
+  opacity: .8;
+}
+
+.card:before, .card:after {
+  content: '';
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  z-index: -5;
+  transition: all, var(--transition-time);
+  transition-timing-function: ease-in-out;
+}
+
+.card:before {
+  background: #ddd;
+  width: 250%;
+  height: 250%;
+}
+
+.card:after {
+  background: white;
+  width: 200%;
+  height: 200%;
+}
+
+.card:hover {
+  color: var(--color);
+}
+
+.card:hover:before, .card:hover:after {
+  transform: scale(1);
+}
+
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+}
+
+.info {
+  font-size: 1.2em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+}
+
+.info img {
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.info h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="images/Ben iraa without bg.png">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="education.html">Education</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+    </div>
+
+    <!-- Projects -->
+
+    <section class="section1 clearfix">
+        <div class="textcenter">
+            <span class="shtext text-yellow-600">The Project I have Done!</span>
+            <span class="seperator"></span>
+
+
+        </div>
+    </section>
+<div id="cards" class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <!--Card 1-->
+  </div>
+</div>
+
+</body>
+</html>
+
+   
+  
+    <!-- <footer  class="flex justify-center mt-32  px-4 text-gray-100 bg-gray-400">
+      <div class="container py-6">
+          <h1 class="text-center text-lg font-bold lg:text-xl">
+              Join 31+ other and never miss <br> out on new tips, tutorials, and more.
+          </h1>
+    
+          <div class="flex justify-center mt-6">
+              <div class="bg-white rounded-lg">
+                  <div class="flex flex-wrap justify-between md:flex-row">
+                    <form id="subscribe">
+                      <input type="email" class="m-1 p-2 appearance-none text-gray-700 text-sm focus:outline-none" name="email" required="" placeholder="Enter your email">
+                      <button class="w-full m-1 p-2 text-sm bg-gray-800 rounded-lg font-semibold uppercase lg:w-auto">subscribe</button>
+                    </form>
+                  </div>
+              </div>
+          </div>
+    
+          <hr class="h-px mt-6 bg-gray-700 border-none">
+    
+          <div class="flex flex-col items-center justify-between mt-6 md:flex-row">
+              <div>
+                  <a href="index.html" class="text-xl font-bold">BenIraa</a>
+              </div>
+              <div class="flex mt-4 md:m-0">
+                  <div class="-mx-4">
+                    <a href="/dist/about.html" class="px-4 text-sm">About</a>
+                    <a href="/dist/projects.html" class="px-4 text-sm">Blog</a>
+                    <a href="/dist/about.html" class="px-4 text-sm">News</a>
+                    <a href="/dist/contact.html" class="px-4 text-sm">Contact</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </footer> -->
+    
+
+  </body>
+    </html>
+
+
+<script>
+fetch('https://beniraabrand.herokuapp.com/api/v1/blogs',{
+     method:'GET',
+     headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+     }
+}).then(data=>data.json()
+).then(values=>{
+  console.log(values.data.blog)
+  document.getElementById("cards").innerHTML = values.data.blog.map((values)=>
+  `
+  <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="${values.picture}" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">${values.title}</div>
+        <p class="text-gray-700 text-base">
+          ${values.desc}
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <div class="">
+          <a href="viewBlog.html#${values._id}" class=" text-lg text-blue-400" >Read More</a>
+  
+        </div>
+      </div>
+    </div>
+        
+  `
+  ).join("")
+})            
+</script>
+<!-- <script>
+const CreateBlog = async (event) => {
+  event.preventDefault()
+
+  try {
+    const formData = new FormData()
+    formData.append("title", document.getElementById("title").value)
+    formData.append("picture",document.getElementById("picture").files[0])
+    formData.append("desc", tinymce.activeEditor.getContent())
+
+    console.log("hello", document.getElementById("picture").files[0])
+    const response = await fetch(
+     "https://beniraabrand.herokuapp.com/api/v1/blogs",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("token")).token
+          }`,
+        },
+        body: formData,
+      }
+    )
+    const data = await response.json()
+    const { error, message, status } = data
+    console.log("data", data)
+    console.log(error, message, status)
+  } catch (error) {
+    console.log(error.stack)
+  }
+}
+</script> -->
+<script>
+  const signup_Form = document.getElementById("subscribe")
+     signup_Form.addEventListener("submit", async (event) => {
+       event.preventDefault()
+       // CREATE USER
+       const body = {
+         email: signup_Form.email.value,
+       }
+       console.log(body)
+       await fetch("https://beniraabrand.herokuapp.com/api/v1/subscribers", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(body),
+       })
+         .then((res) => res.json())
+         .then((json) => {
+           const { error, message, status } = json
+           console.log(error, message, status)
+          //  document.getElementById("error").innerHTML = message
+          //  document.getElementById("error").style.color = "red"
+         })
+       // CLEAR FORM
+       signup_Form.email.value = ""
+      Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Thank Your For Subscribing Our news Letter!',
+      showConfirmButton: false,
+      timer: 1500
+      })
+
+     });
+     
+</script>

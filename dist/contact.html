@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <!-- W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5 CSS3,Bootstrap,Tailwind CSS which are 100% Mobile friendly. w3Hubs all Layouts are responsive cross browser supported, best quality world class designs. -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style type="text/tailwindcss">
+        @layer utilities { .content-auto { content-visibility: auto; } }
+
+        .input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+body {
+  
+    font-family: 'Poppins', sans-serif;
+}
+
+#form {
+   
+    width: 600px;
+    margin: 1vh auto 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+#form h1 {
+    color: #0f2027;
+    text-align: center;
+}
+
+#form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    background-color: darkgoldenrod;
+    border: none;
+    border-radius: 4px;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="images/Ben iraa without bg.png">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="education.html">Education</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+    </div>
+    <!-- Leave us a message -->
+
+
+    <div class="container">
+        <div class="innerwrap">
+
+            <section class="section1 clearfix">
+                <div class="textcenter">
+                    <span class="shtext">Contact Us</span>
+                    <span class="seperator"></span>
+                    <h4 class="text-yellow-600">Drop Us a Mail</h4>
+                </div>
+            </section>
+
+            <section class="section2 clearfix">
+                <div class="col2 column1 first">
+                    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+                    <div class="sec2map" style='overflow:hidden;height:550px;width:100%;'>
+                        <div id='gmap_canvas' style='height:100%;width:100%;'></div>
+                        <div><small><a href="http://embedgooglemaps.com">									embed google maps							</a></small></div>
+                        <div><small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small></div>
+                        <style>
+                            #gmap_canvas img {
+                                max-width: none!important;
+                                background: none!important
+                            }
+                        </style>
+                    </div>
+                    <script type='text/javascript'>
+                        function init_map() {
+                            var myOptions = {
+                                zoom: 14,
+                                center: new google.maps.LatLng(19.075314480255834, 72.88153973865361),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            };
+                            map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                            marker = new google.maps.Marker({
+                                map: map,
+                                position: new google.maps.LatLng(19.075314480255834, 72.88153973865361)
+                            });
+                            infowindow = new google.maps.InfoWindow({
+                                content: '<strong>My Location</strong><br>mumbai<br>'
+                            });
+                            google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.open(map, marker);
+                            });
+                            infowindow.open(map, marker);
+                        }
+                        google.maps.event.addDomListener(window, 'load', init_map);
+                    </script>
+                </div>
+                <div class="col2 column2 last">
+                    <div class="sec2innercont">
+                        <div class="sec2addr">
+                            <p class="font-serif">IRADUKUNDA Benjamin </p>
+                            <p><span class="collig font-serif">Phone :</span class="collig font-serif text-sm"> +250 781019415</p>
+                            <p><span class="collig font-serif">Email :</span class="collig font-serif"> beniraa50@gmail.com</p>
+                            <p><span class="collig font-serif">Whatsapp :</span class="collig font-serif"> +250 71019415</p>
+                        </div>
+                    </div>
+                    <div class="sec2contactform">
+                        <h3 class="sec2frmtitle font-serif">Want to Know More?? Drop Us a Mail</h3>
+                        
+                        <!-- Form contact Page -->
+                        <div class="container">
+                            <form id="form" action="/">
+                               
+                                <div class="input-control">
+                                    <label for="username">Username</label>
+                                    <input id="username" name="username" type="text">
+                                    <div class="error"></div>
+                                </div>
+                                <div class="input-control">
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" type="text">
+                                    <div class="error"></div>
+                                </div>
+                                <div class="input-control">
+                                    <label for="message">Contact Us</label>
+                                    <textarea name="message" id="message" cols="15" rows="5"></textarea>
+                                    <div class="error"></div>
+                                </div>
+                               
+                                <button type="submit">Send</button>
+                            </form>
+                        </div>
+
+                        <!-- End of form -->
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!-- <script src="bundle.js"></script> -->
+
+    <footer  class="flex justify-center mt-32  px-4 text-gray-100 bg-gray-400">
+        <div class="container py-6">
+            <h1 class="text-center text-lg font-bold lg:text-xl">
+                
+            </h1>
+      
+            <div class="flex justify-center mt-6">
+                <div class="bg-white rounded-lg">
+                    <div class="flex flex-wrap justify-between md:flex-row">
+                      <form id="subscribe">
+                        <input type="email" class="m-1 p-2 appearance-none text-gray-700 text-sm focus:outline-none" name="email" required="" placeholder="Enter your email">
+                        <button class="w-full m-1 p-2 text-sm bg-gray-800 rounded-lg font-semibold uppercase lg:w-auto">subscribe</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+      
+            <hr class="h-px mt-6 bg-gray-700 border-none">
+      
+            <div class="flex flex-col items-center justify-between mt-6 md:flex-row">
+                <div>
+                    <a href="index.html" class="text-xl font-bold">BenIraa</a>
+                </div>
+                <div class="flex mt-4 md:m-0">
+                    <div class="-mx-4">
+                      <a href="/dist/about.html" class="px-4 text-sm">About</a>
+                      <a href="/dist/projects.html" class="px-4 text-sm">Blog</a>
+                      <a href="/dist/about.html" class="px-4 text-sm">News</a>
+                      <a href="/dist/contact.html" class="px-4 text-sm">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+</body>
+</html>
+
+
+<script>
+
+
+const form = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+  const validateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const messageValue = message.value.trim();
+
+
+    if(usernameValue === '') {
+        setError(username, 'Username is required');
+    } else {
+        setSuccess(username);
+    }
+
+    if(emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+    } else {
+        setSuccess(email);
+    }
+
+    if(messageValue === '') {
+        setError(message, 'Message is required');
+    } else {
+        setSuccess(message);
+    }
+
+   
+
+};
+</script>
+
+
+
+<script>
+    const signup_Form = document.getElementById("contactMe")
+       signup_Form.addEventListener("submit", async (event) => {
+         event.preventDefault()
+         // CREATE USER
+         const body = {
+           firstname: signup_Form.firstname.value,
+           lastname: signup_Form.lastname.value,
+           email: signup_Form.email.value,
+           telephone: signup_Form.telephone.value,
+           contactUs: signup_Form.contactUs.value,
+         
+
+         }
+         console.log(body)
+         await fetch("https://beniraabrand.herokuapp.com/api/v1/contactUs", {
+           method: "POST",
+           headers: { 
+            "Content-Type": "application/json"
+           },
+           body: JSON.stringify(body),
+         })
+           .then((res) => res.json())
+           .then((json) => {
+             const { error, message, status } = json
+             
+            
+           })
+         // CLEAR FORM
+         signup_Form.firstname.value = ""
+         signup_Form.lastname.value = ""
+         signup_Form.email.value = ""
+         signup_Form.telephone.value = ""
+         signup_Form.contactUs.value = ""
+
+         Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Thank Your For Contact Us!',
+        showConfirmButton: false,
+        timer: 1500
+        })
+         
+       })
+</script>
+
+<script>
+    const sub_Form = document.getElementById("subscribe")
+    sub_Form.addEventListener("submit", async (event) => {
+         event.preventDefault()
+         // CREATE USER
+         const body = {
+           email: sub_Form.email.value,
+         }
+         console.log(body)
+         await fetch("https://beniraabrand.herokuapp.com/api/v1/subscribers", {
+           method: "POST",
+           headers: { "Content-Type": "application/json" },
+           body: JSON.stringify(body),
+         })
+           .then((res) => res.json())
+           .then((json) => {
+             const { error, message, status } = json
+             console.log(error, message, status)
+            //  document.getElementById("error").innerHTML = message
+            //  document.getElementById("error").style.color = "red"
+           })
+         // CLEAR FORM
+         sub_Form.email.value = ""
+        Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Thank Your For Subscribing Our news Letter!',
+        showConfirmButton: false,
+        timer: 1500
+        })
+  
+       });
+       
+  </script>

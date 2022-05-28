@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BenIraa-Admin-Dasboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        
+        /* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: darkgoldenrod;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: darkgoldenrod;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 550px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            background-color: #221d1d;
+            height: 150%;
+        }
+        /* On small screens, set height to 'auto' for the grid */
+        
+        @media screen and (max-width: 767px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand " href="../index.html"><img src="../images/Ben iraa without bg.png " style="width: 120px; height: 50px; margin-top: -12px;"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="Users.html">Add User</a></li>
+                    <li><a href="Subscribers.html">Subscribers</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contactpage.html">Contact Page</a></li>
+                    <li><a href="" id="smallDvc-logoutBtn">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav hidden-xs">
+                <img src="../images/Ben iraa without bg.png " style="width: 120px; height: 50px;">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="Users.html">Add User</a></li>
+                    <li><a href="Subscribers.html">Subscribers</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contactpage.html">Contact Page</a></li>
+                    <li><a href="" id="logoutBtn">Sign out</a></li>
+                </ul><br>
+            </div>
+            <br>
+
+            <div class="col-sm-9">
+                <div class="well">
+                    <h4 class="Font-mono">Dashboard Overview</h4>
+                    <p class="font-mono">Welcome BenIraa, View User and add users!</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well">
+                            <form id="addUser" class="form-inline">
+                                <label for="firstname">firstname:</label>
+                                <input type="text" id="firstname" placeholder="Enter firstname" required="" name="firstname">
+                                <label for="lastname">lastname:</label>
+                                <input type="text" id="lastname" placeholder="Enter lastname" required="" name="lastname">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" placeholder="Enter email" required="" name="email">
+                                <label for="telphone">telephone:</label>
+                                <input type="text" id="telephone" placeholder="Enter telephone" required="" name="telephone">
+                                <label for="role">Role:</label> 
+                                <input type="text" id="role" placeholder="Enter role " required="" name="role">
+                                
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" placeholder="Enter password" required="" name="password">
+                                
+                                <button type="submit"  id="addUser" class="add_user_button">Add User</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="well"  class="well">
+                          
+                 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- <script src="/src/auth.js"></script> -->
+<script>
+  function isLoginedIn()
+{
+    
+    if(!localStorage.getItem('token'))
+    {
+        location.href = '../index.html'
+    }
+}
+isLoginedIn()
+
+ function logout()
+{
+  localStorage.setItem('token', "");
+  window.location.reload()
+  
+}
+// console.log(document.getElementById("logoutBtn"))
+document.getElementById("logoutBtn").addEventListener("click", e=> {
+  e.preventDefault();
+  logout()
+
+})
+document.getElementById("logoutBtn").addEventListener("click", e=> {
+  e.preventDefault();
+  logout()
+
+})
+</script>
+
+</body>
+
+</html>
+
+<script>
+  fetch('https://beniraabrand.herokuapp.com/api/v1/users',  {
+        method: 'GET',
+        headers: { 
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+         },
+      })
+      .then((data)=>{return data.json();
+      }).then((values)=>{
+         document.getElementById("well").innerHTML = values.map((values)=>
+          `
+           <table class="table">
+           <thead>
+               <tr>
+                  
+                   <th>FirstName</th>
+                   <th>LastName</th>
+                   <th>Email</th>
+                   <th>Phone</th>
+                   <th>Date</th>
+                   <th>Role</th>
+                   <th>Update</th>
+                   <th>delete</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   
+                   <td data-label="Power">${values.firstname}</td>
+                   <td data-label="Expiration">${values.lastname}</td>
+                   <td data-label="Value">${values.email}</td>
+                   <td data-label="Value">${values.telephone}</td>
+                   <td data-label="Value">${values.createdAt}</td>
+                   <td data-label="Value">${values.role}</td>
+                   <td data-lebel="trash"><a href="updateUser.html#${values._id}"><i class="fa fa-pencil-square-o"></i></a></td>
+                   <td data-lebel="trash"><a href="deleteUser.html#${values._id}"><i class="fa fa-trash"></i></a></td>
+               </tr>
+               
+           </tbody>
+       </table>
+           `
+         ).join("")
+       }).catch((err) => {
+         console.log(err);
+       })
+
+
+       const signup_Form = document.getElementById("addUser")
+       signup_Form.addEventListener("submit", async (event) => {
+         event.preventDefault()
+         // CREATE USER
+         const body = {
+           firstname: signup_Form.firstname.value,
+           lastname: signup_Form.lastname.value,
+           email: signup_Form.email.value,
+           telephone: signup_Form.telephone.value,
+           role: signup_Form.role.value,
+           password: signup_Form.password.value
+
+         }
+         console.log(body)
+         await fetch("https://beniraabrand.herokuapp.com/api/v1/users/signup", {
+           method: "POST",
+           headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+           body: JSON.stringify(body),
+         })
+           .then((res) => res.json())
+           .then((json) => {
+             const { error, message, status } = json
+             alert(`User  added successfully`);
+             location.href = "./Users.html#";
+           })
+         // CLEAR FORM
+         signup_Form.firstname.value = ""
+         signup_Form.lastname.value = ""
+         signup_Form.email.value = ""
+         signup_Form.password.value = ""
+         signup_Form.telephone.value = ""
+         signup_Form.role.value = ""
+       })
+
+</script>
